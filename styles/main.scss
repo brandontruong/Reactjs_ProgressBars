@@ -1,0 +1,40 @@
+$green-color: #4C860E;
+$header-color-from: #ECEAD1;
+$header-color-to: #C7C7A5;
+
+.progress-bar {
+	border: solid #ccc 1px;
+	margin-bottom: 12px;
+	position: relative;
+	overflow: hidden;
+	&.overlimit {
+		> DIV.progressing {
+			background: red;
+		}
+	}
+	> SPAN {
+		padding: 12px;
+		display: block;
+		text-align: center;
+		position: relative;
+		z-index: 2;
+	}
+	> DIV.progressing {
+		 -webkit-transition: width .5s; /* Safari */
+		transition: width .5s;
+	    position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		background: lightblue;
+		z-index: 1;
+		width: 10%;
+	}
+}
+
+.buttons {
+	display: inline-block;
+	> BUTTON {
+		margin-left: 8px;
+	}
+}
