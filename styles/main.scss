@@ -20,9 +20,9 @@ $header-color-to: #C7C7A5;
 		z-index: 2;
 	}
 	> DIV.progressing {
-		 -webkit-transition: width .5s; /* Safari */
+	    -webkit-transition: width .5s; /* Safari */
 		transition: width .5s;
-	    position: absolute;
+        position: absolute;
 		top: 0;
 		left: 0;
 		bottom: 0;
