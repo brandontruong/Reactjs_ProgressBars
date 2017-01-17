@@ -1,5 +1,7 @@
 import React from 'react';
 
+import NumericToggle from './NumericToggle.jsx';
+
 class App extends React.Component {
 	constructor() {
 		super();
@@ -57,12 +59,6 @@ class App extends React.Component {
 			return <option key={index} value={index}>#progress{index+1}</option>
 		});
 
-		var cButtons = this.state.buttons.map(function(item, index) {
-			return (
-				<button key={'button' + index.toString()} value={item} onClick={this.handleChange}>{item}</button>
-			);
-		}.bind(this));
-
 		return (
 			<div>
 				<h1>Progress Bars Demo</h1>
@@ -70,7 +66,7 @@ class App extends React.Component {
 				<div>{cBars}</div>
 				<div>
 					<select onChange={this.handleBarChange}>{cOptions}</select>
-					<div className="buttons">{cButtons}</div>
+					<NumericToggle values={this.state.buttons} onChange={this.handleChange.bind(this)} />
 				</div>
 			</div>
 		);
