@@ -66,7 +66,7 @@ class App extends React.Component {
 				<div>{cBars}</div>
 				<div>
 					<select onChange={this.handleBarChange}>{cOptions}</select>
-					<NumericToggle values={this.state.buttons} onChange={this.handleChange.bind(this)} />
+					<NumericToggle values={this.state.buttons} onChange={this.handleChange} />
 				</div>
 			</div>
 		);

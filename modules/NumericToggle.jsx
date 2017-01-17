@@ -11,7 +11,7 @@ class NumericToggle extends React.Component {
         {this.props.values.map((value, index) =>
           <button
             key={index}
-            value={index}
+            value={value}
             onClick={this.props.onChange.bind(this)}>
               {value}
           </button>
