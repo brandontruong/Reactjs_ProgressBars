@@ -1,6 +1,7 @@
 import React from 'react';
 
 import NumericToggle from './NumericToggle.jsx';
+import ProgressBar from './ProgressBar.jsx';
 
 class App extends React.Component {
 	constructor() {
@@ -42,30 +43,24 @@ class App extends React.Component {
 	};
 
 	render() {
-		var cBars = this.state.bars.map(function(item, index) {
-			const divStyle = {
-				color: 'red',
-				width: (item * 100)/this.state.limit + '%'
-			};
-
-			return <div className={"progress-bar " + (this.state.limit < item ? 'overlimit' : '')} key={index} value={item}>
-				{item}
-				<div className="progressing" style={divStyle}>
-				</div>
-			</div>
-		}.bind(this));
-
-		var cOptions = this.state.bars.map(function(item, index) {
-			return <option key={index} value={index}>#progress{index+1}</option>
-		});
-
 		return (
 			<div>
 				<h1>Progress Bars Demo</h1>
 				<h1>Limit: {this.state.limit}</h1>
-				<div>{cBars}</div>
 				<div>
-					<select onChange={this.handleBarChange}>{cOptions}</select>
+					{this.state.bars.map((value, index) =>
+						<ProgressBar value={value} key={index} limit={this.state.limit} />
+					)}
+				</div>
+
+				<div>
+					<select onChange={this.handleBarChange}>
+						{this.state.bars.map((item, index) =>
+							<option key={index} value={index}>
+								#progress{index + 1}
+							</option>
+						)}
+					</select>
 					<NumericToggle values={this.state.buttons} onChange={this.handleChange} />
 				</div>
 			</div>
