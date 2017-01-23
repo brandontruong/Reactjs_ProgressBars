@@ -12,17 +12,15 @@ class App extends React.Component {
 			limit: 0,
 			selectedBar: 0
 		};
-		this.handleChange = this.handleChange.bind(this);
-		this.handleBarChange = this.handleBarChange.bind(this);
 	};
 
 	handleChange(event) {
-		var cBars = this.state.bars.slice();
-		var newValue = parseInt(cBars[this.state.selectedBar]) + parseInt(event.target.value);
+		var cBars = bars.slice();
+		var newValue = parseInt(cBars[selectedBar]) + parseInt(event.target.value);
 		if (newValue < 0) {
 			newValue = 0;
 		}
-		cBars[this.state.selectedBar] = newValue;
+		cBars[selectedBar] = newValue;
 		this.setState({bars: cBars});
 	}
 
@@ -43,25 +41,27 @@ class App extends React.Component {
 	};
 
 	render() {
+		const { limit, bars, buttons } = this.state;
+
 		return (
 			<div>
 				<h1>Progress Bars Demo</h1>
-				<h1>Limit: {this.state.limit}</h1>
+				<h1>Limit: {limit}</h1>
 				<div>
-					{this.state.bars.map((value, index) =>
-						<ProgressBar value={value} key={index} limit={this.state.limit} />
+					{bars.map((value, index) =>
+						<ProgressBar value={value} key={index} limit={limit} />
 					)}
 				</div>
 
 				<div>
-					<select onChange={this.handleBarChange}>
-						{this.state.bars.map((item, index) =>
+					<select onChange={this.handleBarChange.bind(this)}>
+						{bars.map((item, index) =>
 							<option key={index} value={index}>
 								#progress{index + 1}
 							</option>
 						)}
 					</select>
-					<NumericToggle values={this.state.buttons} onChange={this.handleChange} />
+					<NumericToggle values={buttons} onChange={this.handleChange.bind(this)} />
 				</div>
 			</div>
 		);
