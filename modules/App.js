@@ -1,6 +1,6 @@
 import React from 'react';
 
-import NumericToggle from './NumericToggle.jsx';
+import NumericToggle from './NumericToggle.js';
 
 class App extends React.Component {
 	constructor() {
