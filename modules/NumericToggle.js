@@ -12,7 +12,7 @@ class NumericToggle extends React.Component {
           <button
             key={index}
             value={value}
-            onClick={this.props.onChange.bind(this)}>
+            onClick={this.props.onChange}>
               {value}
           </button>
         )}

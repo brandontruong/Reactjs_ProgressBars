@@ -1,7 +1,7 @@
 import React from 'react';
-
 import NumericToggle from './NumericToggle.js';
 import ProgressBar from './ProgressBar.js';
+import fetchData from './fetchData.js';
 
 class App extends React.Component {
 	constructor() {
@@ -29,15 +29,10 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		fetch("http://frontend-exercise.apps.staging.digital.gov.au/bars")
-			.then((response) => {
-				return response.json()
-			})
-			.then((json) => {
-				if (json !== undefined) {
-					this.setState({bars: json.bars, buttons: json.buttons, limit: json.limit});
-				}
-			});
+		 fetchData(json => {
+	      if (json !== undefined) {
+	          this.setState({bars: json.bars, buttons: json.buttons, limit: json.limit});
+	    	}});
 	};
 
 	render() {
