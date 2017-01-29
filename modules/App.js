@@ -15,13 +15,13 @@ class App extends React.Component {
 	};
 
 	handleChange(event) {
-		var cBars = bars.slice();
-		var newValue = parseInt(cBars[selectedBar]) + parseInt(event.target.value);
-		if (newValue < 0) {
-			newValue = 0;
-		}
-		cBars[selectedBar] = newValue;
-		this.setState({bars: cBars});
+		 var cBars = this.state.bars.slice();
+	    var newValue = parseInt(cBars[this.state.selectedBar], 10) + parseInt(event.target.value, 10);
+	    if (newValue < 0) {
+	      newValue = 0;
+	    }
+	    cBars[this.state.selectedBar] = newValue;
+	    this.setState({bars: cBars});
 	}
 
 	handleBarChange(event) {
