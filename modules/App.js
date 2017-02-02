@@ -42,6 +42,7 @@ class App extends React.Component {
 		return (
 			<div>
 				<h1>Progress Bars Demo</h1>
+				
 				<div>
 					{bars.map((value, index) =>
 						<ProgressBar incrementedBy={value} key={index} limit={limit} />

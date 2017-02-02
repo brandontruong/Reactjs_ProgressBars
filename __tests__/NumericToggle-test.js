@@ -21,7 +21,4 @@ it('NumericToggle check if the buttons are set up correctly with the data provid
  expect(numericToggle.text()).toEqual('4319-11-24');
  expect(numericToggle.find('button').length).toEqual(4);
 
-  /*checkbox.find('button').simulate('change');
-
-  expect(checkbox.text()).toEqual('On');*/
 });
