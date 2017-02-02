@@ -25,3 +25,13 @@ it('ProgressBar check if the value is less than the limit the the bar should not
  expect(progressBar.hasClass('overlimit')).toEqual(true);
  
 });
+
+it('ProgressBar check if the value is less than 0 then the value of the bar should always be 0', () => {
+  const value = -50;
+  const limit = 100;
+  const progressBar = shallow(
+    <ProgressBar value={value} limit={limit} />
+  );
+ expect(progressBar.text()).toEqual('0');
+ 
+});
