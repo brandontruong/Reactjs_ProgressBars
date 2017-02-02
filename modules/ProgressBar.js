@@ -16,7 +16,6 @@ class ProgressBar extends React.Component {
     render () {
 		const { limit } = this.props;
 		const styles = {
-			color: 'red',
 			width: (this.state.value * 100) / limit + '%'
 		};
 		
