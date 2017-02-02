@@ -6,7 +6,8 @@ function parseJSON(response) {
   return {
     bars: response.bars,
     buttons: response.buttons,
-    limit: response.limit,
+    //limit: response.limit,
+	limit: 100
   };
 }
 
