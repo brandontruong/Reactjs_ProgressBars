@@ -8,10 +8,10 @@ class ProgressBar extends React.Component {
 		};
 	}  
 	componentWillMount () {
-        this.setState({value: (this.props.value < 0 ? 0 : this.props.value )});
+        this.setState({value: (this.props.incrementedBy < 0 ? 0 : this.props.incrementedBy )});
     };
 	componentWillReceiveProps(nextProps) {
-		this.setState({value: (nextProps.value < 0 ? 0 : nextProps.value )});
+		this.setState({value: ((nextProps.incrementedBy + this.state.value) < 0 ? 0 : (nextProps.incrementedBy + this.state.value))});
 	};
     render () {
 		const { limit } = this.props;

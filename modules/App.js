@@ -15,17 +15,18 @@ class App extends React.Component {
 	};
 
 	handleChange(event) {
-		 var cBars = this.state.bars.slice();
-	    var newValue = parseInt(cBars[this.state.selectedBar], 10) + parseInt(event.target.value, 10);
-	    if (newValue < 0) {
-	      newValue = 0;
-	    }
-	    cBars[this.state.selectedBar] = newValue;
+		var cBars = this.state.bars.slice();
+		cBars.map((item, index) => cBars[index] = 0);
+		//reset the bar incrementedBy
+	    cBars[this.state.selectedBar] = parseInt(event.target.value, 10);
 	    this.setState({bars: cBars});
 	}
 
 	handleBarChange(event) {
-		this.setState({selectedBar: event.target.value});
+		var cBars = this.state.bars.slice();
+		//reset the bar incrementedBy
+		cBars.map((item, index) => cBars[index] = 0);
+		this.setState({selectedBar: event.target.value, bars: cBars});
 	}
 
 	componentDidMount() {
@@ -41,10 +42,9 @@ class App extends React.Component {
 		return (
 			<div>
 				<h1>Progress Bars Demo</h1>
-				<h1>Limit: {limit}</h1>
 				<div>
 					{bars.map((value, index) =>
-						<ProgressBar value={value} key={index} limit={limit} />
+						<ProgressBar incrementedBy={value} key={index} limit={limit} />
 					)}
 				</div>
 
