@@ -6,7 +6,7 @@ function parseJSON(response) {
   return {
     bars: response.bars,
     buttons: response.buttons,
-    limit: (response.limit === undefined)? 100: response.limit === undefined
+    limit: (response.limit === undefined)? 100: response.limit
   };
 }
 
