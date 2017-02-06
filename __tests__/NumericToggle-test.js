@@ -3,7 +3,8 @@
 /* eslint-disable no-unused-vars */
 
 import React from 'react';
-import {shallow} from 'enzyme';
+import { shallow, mount, render } from 'enzyme';
+import sinon from 'sinon';
 import NumericToggle from '../modules/NumericToggle';
 
 it('NumericToggle check if the buttons are set up correctly with the data provided', () => {
@@ -22,3 +23,16 @@ it('NumericToggle check if the buttons are set up correctly with the data provid
  expect(numericToggle.find('button').length).toEqual(4);
 
 });
+
+/*it('simulates click events', () => {
+    const buttons = [43,19,-11,-24];
+    const onClick = sinon.spy();
+    const numericToggle = mount(
+      <NumericToggle onClick={onClick} values={buttons} />
+    );
+
+    expect(numericToggle.find('button').length).toEqual(4);
+    expect(numericToggle.find('button').at(0).props().onClick).toEqual('onClick');
+    
+  });
+*/

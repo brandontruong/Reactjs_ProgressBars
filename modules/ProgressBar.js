@@ -23,7 +23,7 @@ class ProgressBar extends React.Component {
 		return (
 			<div className={"progress-bar " + (limit < this.state.value ? 'overlimit' : '')} value={this.state.value}>
 				{this.state.value}
-				<div className="progressing" style={styles}><Foo test='hello world' /></div>
+				<div className="progressing" style={styles}></div>
 				
 			</div>
 		);

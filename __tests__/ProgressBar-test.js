@@ -69,7 +69,7 @@ it('ProgressBar check if the incrementedBy is less than the limit the the bar sh
 	).toEqual(1);
   });
 
-  it('renders test', () => {
+/*  it('renders test', () => {
 	     const wrapper = shallow(<ProgressBar />);
 		 
     expect(
@@ -83,4 +83,4 @@ it('ProgressBar check if the incrementedBy is less than the limit the the bar sh
     expect(
 		wrapper.find('Foo').prop('test')
 	).toEqual('hello world');
-  });
+  });*/

@@ -1,6 +1,5 @@
 import React from 'react';
-import NumericToggle from './NumericToggle.js';
-import ProgressBar from './ProgressBar.js';
+import ProgressBarApplication from './ProgressBarApplication.js';
 import fetchData from './fetchData.js';
 
 class App extends React.Component {
@@ -14,21 +13,6 @@ class App extends React.Component {
 		};
 	};
 
-	handleChange(event) {
-		var cBars = this.state.bars.slice();
-		cBars.map((item, index) => cBars[index] = 0);
-		//reset the bar incrementedBy
-	    cBars[this.state.selectedBar] = parseInt(event.target.value, 10);
-	    this.setState({bars: cBars});
-	}
-
-	handleBarChange(event) {
-		var cBars = this.state.bars.slice();
-		//reset the bar incrementedBy
-		cBars.map((item, index) => cBars[index] = 0);
-		this.setState({selectedBar: event.target.value, bars: cBars});
-	}
-
 	componentDidMount() {
 		 fetchData(json => {
 	      if (json !== undefined) {
@@ -41,24 +25,7 @@ class App extends React.Component {
 
 		return (
 			<div>
-				<h1>Progress Bars Demo</h1>
-				
-				<div>
-					{bars.map((value, index) =>
-						<ProgressBar incrementedBy={value} key={index} limit={limit} />
-					)}
-				</div>
-
-				<div>
-					<select onChange={this.handleBarChange.bind(this)}>
-						{bars.map((item, index) =>
-							<option key={index} value={index}>
-								#progress{index + 1}
-							</option>
-						)}
-					</select>
-					<NumericToggle values={buttons} onChange={this.handleChange.bind(this)} />
-				</div>
+				<ProgressBarApplication data={this.state} />
 			</div>
 		);
 	}
