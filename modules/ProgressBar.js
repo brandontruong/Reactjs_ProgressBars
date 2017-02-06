@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Foo from '../modules/Foo';
 
 class ProgressBar extends React.Component {
 	constructor(props) {
@@ -22,7 +23,8 @@ class ProgressBar extends React.Component {
 		return (
 			<div className={"progress-bar " + (limit < this.state.value ? 'overlimit' : '')} value={this.state.value}>
 				{this.state.value}
-				<div className="progressing" style={styles}></div>
+				<div className="progressing" style={styles}><Foo test='hello world' /></div>
+				
 			</div>
 		);
 	}
