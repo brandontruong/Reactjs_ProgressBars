@@ -24,15 +24,31 @@ it('NumericToggle check if the buttons are set up correctly with the data provid
 
 });
 
-/*it('simulates click events', () => {
-    const buttons = [43,19,-11,-24];
-    const onClick = sinon.spy();
-    const numericToggle = mount(
-      <NumericToggle onClick={onClick} values={buttons} />
+ /*it('sets up buttons and binds events correctly given props', () => {
+    const buttons = [43, 19, -11, -24];
+    const onChange = jasmine.createSpy();
+    const numericToggle = shallow(
+      <NumericToggle values={buttons} onChange={onChange} />
     );
 
+    expect(numericToggle.text()).toEqual('4319-11-24');
     expect(numericToggle.find('button').length).toEqual(4);
-    expect(numericToggle.find('button').at(0).props().onClick).toEqual('onClick');
+    numericToggle.find('button').nodes[0].props.onClick();
+    expect(onChange).toHaveBeenCalled();
+  });*/
+
+it('simulates click events', () => {
+    const buttons = [43,19,-11,-24];
+    const onChange = sinon.spy();
+    const numericToggle = shallow(
+      <NumericToggle onChange={onChange} values={buttons} />
+    );
+
+    numericToggle.find('button').nodes[0].props.onClick();
+    expect(numericToggle.find('button').length).toEqual(4);
+     
+      
+    expect(onChange.calledOnce).toEqual(true);
     
   });
-*/
+
