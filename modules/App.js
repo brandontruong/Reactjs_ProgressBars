@@ -7,6 +7,7 @@ export const BASE_URL = 'http://frontend-exercise.apps.staging.digital.gov.au/ba
 export const fetchData = () => {
 	return axios.get(`${BASE_URL}`);
 }
+
 class App extends React.Component {
 	
 	constructor() {

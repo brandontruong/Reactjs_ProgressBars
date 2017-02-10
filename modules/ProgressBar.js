@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import Foo from '../modules/Foo';
 
 class ProgressBar extends React.Component {
 	constructor(props) {
