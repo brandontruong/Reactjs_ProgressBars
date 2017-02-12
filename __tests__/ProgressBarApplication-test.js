@@ -18,7 +18,7 @@ describe('ProgressBarApplication test', function() {
     expect(spy.calledOnce).to.equal(true);
     expect(progressBarApplication.state('bars')).to.equal(data.bars);
   });
-  it('handleBarChange get called and set the property correctly', () => {
+  it('handleBarChange get called and set the state property correctly', () => {
     const spy = sinon.spy(ProgressBarApplication.prototype, 'handleBarChange');
     const progressBarApplication = mount(<ProgressBarApplication />);
     const selectWrapper = progressBarApplication.find('select');
@@ -27,5 +27,17 @@ describe('ProgressBarApplication test', function() {
     selectWrapper.simulate('change', {target: {value: '1'}});
     expect(spy.calledOnce).to.equal(true);
     expect(progressBarApplication.state('selectedBar')).to.equal('1');
+  });
+  it('handleChange get called and set the state property correctly', () => {
+    const spy = sinon.spy(ProgressBarApplication.prototype, 'handleChange');
+	const data = {"buttons":[23,25,-8,-26],"bars":[81,82,35,46]};
+    const progressBarApplication = mount(<ProgressBarApplication handleChange={spy}/>);
+	expect(spy.calledOnce).to.equal(false);
+	progressBarApplication.setProps({ data: data });
+    const buttontWrapper = progressBarApplication.find('button');
+    expect(buttontWrapper.length).to.equal(4);
+    buttontWrapper.at(0).simulate('click');
+    expect(spy.calledOnce).to.equal(true);
+	expect(progressBarApplication.state('bars')).to.deep.equal([23,0,0,0]);
   });
 });
