@@ -1,7 +1,7 @@
 require('sinon-as-promised');
 import {expect} from 'chai';
 import React from 'react';
-import {mount} from 'enzyme';
+import {mount, shallow} from 'enzyme';
 import sinon from 'sinon';
 import ProgressBarApplication from '../modules/ProgressBarApplication';
 
@@ -17,5 +17,15 @@ describe('ProgressBarApplication test', function() {
     progressBarApplication.setProps({ data: data });
     expect(spy.calledOnce).to.equal(true);
     expect(progressBarApplication.state('bars')).to.equal(data.bars);
+  });
+  it('handleBarChange get called and set the property correctly', () => {
+    const spy = sinon.spy(ProgressBarApplication.prototype, 'handleBarChange');
+    const progressBarApplication = mount(<ProgressBarApplication />);
+    const selectWrapper = progressBarApplication.find('select');
+    expect(selectWrapper.length).to.equal(1);
+    
+    selectWrapper.simulate('change', {target: {value: '1'}});
+    expect(spy.calledOnce).to.equal(true);
+    expect(progressBarApplication.state('selectedBar')).to.equal('1');
   });
 });
