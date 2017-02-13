@@ -1,6 +1,6 @@
 # Reactjs_ProgressBars
 
-This project is built using Reactjs, Jess, Enzyme, etc...
+This project is built using Reactjs, Jess, Enzyme, Chai.
 
 Requirements
 * Must read data from the endpoint.
